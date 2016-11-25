@@ -49,7 +49,15 @@
     </xs:sequence>
   </xs:complexType>
 </xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>REPLACE_WITH_ACTUAL_URL</con:endpoint></con:endpoints><con:operation id="9d4ba03a-5605-49fe-a3f4-c23013a7f437" isOneWay="false" action="urn:SayHello" name="sayHello" bindingOperationName="sayHello" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6813ecc9-a7cc-4d61-90c5-2e0ec1a9380d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/Hello</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://webservice.egli.ch/">
-   <soapenv:Header/>
+   <soapenv:Header>
+	 <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-b766367d-fba2-4e87-babb-6647e9a6ddc3">
+            <wsse:Username>chrigu</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">1234</wsse:Password>
+         </wsse:UsernameToken>
+	 </wsse:Security>
+   </soapenv:Header>
+
    <soapenv:Body>
       <ser:sayHello>
          <!--Optional:-->

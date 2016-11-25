@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<apache.cfx.version>3.1.7</apache.cfx.version>
 	</properties>
 
 	<dependencies>
@@ -37,7 +38,19 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
-			<version>3.1.7</version>
+			<version>${apache.cfx.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-security</artifactId>
+			<version>${apache.cfx.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-policy</artifactId>
+			<version>${apache.cfx.version}</version>
 		</dependency>
 
 		<dependency>
@@ -69,8 +82,7 @@
 							<goal>wsgen</goal>
 						</goals>
 						<configuration>
-							<sei><!-- fully qualified class name goes here --></sei>
-							<genWsdl>true</genWsdl>
+							<genWsdl>false</genWsdl>
 							<resourceDestDir>${basedir}/src/main/resources/wsdl</resourceDestDir>
 						</configuration>
 					</execution>

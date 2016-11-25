@@ -15,9 +15,11 @@ import java.util.logging.Logger;
  * @author Christian Egli
  * @since 11/25/16.
  */
-@WebService(serviceName = "HelloService", portName = "HelloPort",
+@WebService(serviceName = "HelloService",
+        portName = "HelloPort",
         targetNamespace = "http://webservice.egli.ch/",
-        endpointInterface = "ch.egli.webservice.Hello")
+        endpointInterface = "ch.egli.webservice.Hello",
+        wsdlLocation = "classpath:wsdl/HelloService.wsdl")
 public class HelloPortImpl {
 
     private static final Logger LOG = Logger.getLogger(HelloPortImpl.class.getName());
