@@ -33,9 +33,7 @@ public class HelloPortImpl {
     }
 
     public String sayHello(String myname) {
-        LOG.info("Executing operation sayHello" + myname);
-
-        //SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
+        LOG.info("Executing operation sayHello " + myname);
 
         int dummyNumber = dummyService.getNumber();
         try {

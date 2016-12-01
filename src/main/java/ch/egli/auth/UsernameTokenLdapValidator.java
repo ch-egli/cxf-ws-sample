@@ -1,19 +1,10 @@
 package ch.egli.auth;
 
-import org.apache.wss4j.common.ext.WSPasswordCallback;
 import org.apache.wss4j.common.ext.WSSecurityException;
 import org.apache.wss4j.dom.handler.RequestData;
 import org.apache.wss4j.dom.message.token.UsernameToken;
 import org.apache.wss4j.dom.validate.Credential;
 import org.apache.wss4j.dom.validate.UsernameTokenValidator;
-
-import javax.security.auth.callback.Callback;
-import javax.security.auth.callback.UnsupportedCallbackException;
-import javax.security.auth.login.LoginContext;
-
-import java.io.IOException;
-
-import static org.apache.cxf.common.security.TokenType.UsernameToken;
 
 /**
  * TODO: Describe

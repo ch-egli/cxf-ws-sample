@@ -35,6 +35,7 @@ public class WebserviceConfiguration {
     @Bean
     public Endpoint endpoint() {
         Map<String, Object> endpointProps = new HashMap<>();
+        endpointProps.put("ws-security.is-bsp-compliant", "false");
         endpointProps.put("ws-security.ut.validator", UsernameTokenLdapValidator.class.getName());
 
         EndpointImpl endpoint = new EndpointImpl(bus, helloPort());
