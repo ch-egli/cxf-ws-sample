@@ -36,7 +36,7 @@ objectclass: inetOrgPerson
 cn: Ben Alex
 sn: Alex
 uid: ben
-userPassword: {SHA}nFCebWjxfaLbHHG1Qk5UU4trbvQ=
+userPassword: password
 
 dn: uid=bob,ou=people,dc=example,dc=com
 objectclass: top

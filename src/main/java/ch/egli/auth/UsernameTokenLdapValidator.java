@@ -56,7 +56,8 @@ public class UsernameTokenLdapValidator extends UsernameTokenValidator {
         String user = usernameToken.getName();
         String password = usernameToken.getPassword();
 
-        // Authentication
+/*
+        // Authentication via LdapTemplate
         try {
             ldapTemplate.authenticate(query().where("uid").is(user), password);
         } catch (EmptyResultDataAccessException eae) {
@@ -72,9 +73,10 @@ public class UsernameTokenLdapValidator extends UsernameTokenValidator {
             LOGGER.error("Authentication failed for user '{}' ", ne);
             throw new WSSecurityException(WSSecurityException.ErrorCode.FAILED_AUTHENTICATION, ne);
         }
+*/
 
-        // dummy authorization: add role
 /*
+        // dummy authorization: add role
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new LdapAuthority("DINAR_PKM_R", "dn1-test"));
         Authentication auth = new UsernamePasswordAuthenticationToken(user, password, authorities);
@@ -82,8 +84,6 @@ public class UsernameTokenLdapValidator extends UsernameTokenValidator {
 
         Authentication request = new UsernamePasswordAuthenticationToken(user, password);
         Authentication result = ldapAuthenticationProvider.authenticate(request);
-        SecurityContextHolder.getContext().setAuthentication(result);
-
         SecurityContextHolder.getContext().setAuthentication(result);
 
         return credential;

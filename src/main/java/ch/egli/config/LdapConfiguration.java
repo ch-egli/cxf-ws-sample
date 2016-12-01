@@ -29,6 +29,7 @@ public class LdapConfiguration {
     public LdapContextSource contextSource() {
         LdapContextSource contextSource = new LdapContextSource();
         contextSource.setUrl(env.getRequiredProperty("ldap.url"));
+        contextSource.setBase("dc=example,dc=com");
         contextSource.setUserDn(env.getRequiredProperty("ldap.managerDn"));
         contextSource.setPassword(env.getRequiredProperty("ldap.managerPassword"));
         return contextSource;
@@ -36,7 +37,7 @@ public class LdapConfiguration {
 
     @Bean
     FilterBasedLdapUserSearch userSearch() {
-        return new FilterBasedLdapUserSearch("dc=example,dc=com", "(uid={0})", contextSource());
+        return new FilterBasedLdapUserSearch("ou=people", "(uid={0})", contextSource());
     }
 
     @Bean
@@ -50,8 +51,8 @@ public class LdapConfiguration {
 
     @Bean
     public DefaultLdapAuthoritiesPopulator ldapAuthoritiesPopulator() {
-        DefaultLdapAuthoritiesPopulator ldapAuthoritiesPopulator = new DefaultLdapAuthoritiesPopulator(contextSource(), "dc=example,dc=com");
-        ldapAuthoritiesPopulator.setGroupRoleAttribute("member");
+        DefaultLdapAuthoritiesPopulator ldapAuthoritiesPopulator = new DefaultLdapAuthoritiesPopulator(contextSource(), "ou=groups");
+        ldapAuthoritiesPopulator.setGroupRoleAttribute("ou");
         return ldapAuthoritiesPopulator;
     }
 
