@@ -74,15 +74,17 @@ public class UsernameTokenLdapValidator extends UsernameTokenValidator {
         }
 
         // dummy authorization: add role
+/*
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new LdapAuthority("DINAR_PKM_R", "dn1-test"));
         Authentication auth = new UsernamePasswordAuthenticationToken(user, password, authorities);
+*/
 
-        // Authentication request = new UsernamePasswordAuthenticationToken(user, password);
-        // Authentication result = ldapAuthenticationProvider.authenticate(request);
-        // SecurityContextHolder.getContext().setAuthentication(result);
+        Authentication request = new UsernamePasswordAuthenticationToken(user, password);
+        Authentication result = ldapAuthenticationProvider.authenticate(request);
+        SecurityContextHolder.getContext().setAuthentication(result);
 
-        SecurityContextHolder.getContext().setAuthentication(auth);
+        SecurityContextHolder.getContext().setAuthentication(result);
 
         return credential;
     }

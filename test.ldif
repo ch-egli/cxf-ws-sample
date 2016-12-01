@@ -98,5 +98,27 @@ sn: Cadet
 uid: space cadet
 userPassword: password
 
+dn: cn=developers,ou=groups,dc=example,dc=com
+objectclass: top
+objectclass: groupOfNames
+cn: developers
+ou: developer
+member: uid=ben,ou=people,dc=example,dc=com
+member: uid=bob,ou=people,dc=example,dc=com
+
+dn: cn=managers,ou=groups,dc=example,dc=com
+objectclass: top
+objectclass: groupOfNames
+cn: managers
+ou: manager
+member: uid=ben,ou=people,dc=example,dc=com
+member: cn=mouse\, jerry,ou=people,dc=example,dc=com
+
+dn: cn=submanagers,ou=subgroups,ou=groups,dc=example,dc=com
+objectclass: top
+objectclass: groupOfNames
+cn: submanagers
+ou: submanager
+member: uid=ben,ou=people,dc=example,dc=com
 
 

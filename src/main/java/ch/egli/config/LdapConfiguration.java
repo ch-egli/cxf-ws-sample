@@ -36,22 +36,22 @@ public class LdapConfiguration {
 
     @Bean
     FilterBasedLdapUserSearch userSearch() {
-        return new FilterBasedLdapUserSearch("", "(uid={0})", contextSource());
+        return new FilterBasedLdapUserSearch("dc=example,dc=com", "(uid={0})", contextSource());
     }
 
     @Bean
     public BindAuthenticator bindAuthenticator() {
-        // String[] userDnPatterns = {"cn={0}"};
+        //String[] userDnPatterns = {"uid={0}"};
         BindAuthenticator bindAuthenticator = new BindAuthenticator(contextSource());
-        // bindAuthenticator.setUserDnPatterns(userDnPatterns);
+        //bindAuthenticator.setUserDnPatterns(userDnPatterns);
         bindAuthenticator.setUserSearch(userSearch());
         return bindAuthenticator;
     }
 
     @Bean
     public DefaultLdapAuthoritiesPopulator ldapAuthoritiesPopulator() {
-        DefaultLdapAuthoritiesPopulator ldapAuthoritiesPopulator = new DefaultLdapAuthoritiesPopulator(contextSource(), "ou=groups");
-        ldapAuthoritiesPopulator.setGroupRoleAttribute("ou");
+        DefaultLdapAuthoritiesPopulator ldapAuthoritiesPopulator = new DefaultLdapAuthoritiesPopulator(contextSource(), "dc=example,dc=com");
+        ldapAuthoritiesPopulator.setGroupRoleAttribute("member");
         return ldapAuthoritiesPopulator;
     }
 
