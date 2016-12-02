@@ -1,0 +1,4 @@
+
+- Add SecurityPolicy programmatically to wsdl
+- Injection of Spring Beans in UsernameTokenLdapValidator -> is it possible to make that easier?
+- Configuration of LdapProvider -> possible with configurer?
