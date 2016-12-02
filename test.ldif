@@ -13,16 +13,6 @@ objectclass: top
 objectclass: organizationalUnit
 ou: people
 
-dn: ou=space cadets,dc=example,dc=com
-objectclass: top
-objectclass: organizationalUnit
-ou: space cadets
-
-dn: ou=\"quoted people\",dc=example,dc=com
-objectclass: top
-objectclass: organizationalUnit
-ou: "quoted people"
-
 dn: ou=otherpeople,dc=example,dc=com
 objectclass: top
 objectclass: organizationalUnit
@@ -66,36 +56,6 @@ objectclass: inetOrgPerson
 cn: Mouse, Jerry
 sn: Mouse
 uid: jerry
-userPassword: password
-
-dn: cn=slash/guy,ou=people,dc=example,dc=com
-objectclass: top
-objectclass: person
-objectclass: organizationalPerson
-objectclass: inetOrgPerson
-cn: slash/guy
-sn: Slash
-uid: slashguy
-userPassword: password
-
-dn: cn=quote\"guy,ou=\"quoted people\",dc=example,dc=com
-objectclass: top
-objectclass: person
-objectclass: organizationalPerson
-objectclass: inetOrgPerson
-cn: quote\"guy
-sn: Quote
-uid: quoteguy
-userPassword: password
-
-dn: uid=space cadet,ou=space cadets,dc=example,dc=com
-objectclass: top
-objectclass: person
-objectclass: organizationalPerson
-objectclass: inetOrgPerson
-cn: Space Cadet
-sn: Cadet
-uid: space cadet
 userPassword: password
 
 dn: cn=developers,ou=groups,dc=example,dc=com

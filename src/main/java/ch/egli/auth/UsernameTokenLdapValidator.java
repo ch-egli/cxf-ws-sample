@@ -86,6 +86,8 @@ public class UsernameTokenLdapValidator extends UsernameTokenValidator {
         Authentication result = ldapAuthenticationProvider.authenticate(request);
         SecurityContextHolder.getContext().setAuthentication(result);
 
+        LOGGER.info("Roles of user '{}': {}", user, result.getAuthorities().toArray());
+
         return credential;
     }
 
