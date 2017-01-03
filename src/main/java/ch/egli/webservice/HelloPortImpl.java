@@ -2,6 +2,7 @@ package ch.egli.webservice;
 
 
 import ch.egli.business.DummyService;
+import org.apache.cxf.interceptor.OutFaultInterceptors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
@@ -20,6 +21,7 @@ import java.util.logging.Logger;
         targetNamespace = "http://webservice.egli.ch/",
         endpointInterface = "ch.egli.webservice.Hello",
         wsdlLocation = "classpath:wsdl/HelloService.wsdl")
+@OutFaultInterceptors(interceptors= {"ch.egli.auth.PkmFaultOutInterceptor"})
 public class HelloPortImpl {
 
     private static final Logger LOG = Logger.getLogger(HelloPortImpl.class.getName());

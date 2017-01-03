@@ -1,5 +1,6 @@
 package ch.egli.config;
 
+import ch.egli.auth.PkmFaultOutInterceptor;
 import ch.egli.auth.UsernameTokenLdapValidator;
 import ch.egli.webservice.HelloPortImpl;
 import org.apache.cxf.Bus;
@@ -42,6 +43,11 @@ public class WebserviceConfiguration {
         endpoint.setProperties(endpointProps);
         endpoint.publish("/Hello");
         return endpoint;
+    }
+
+    @Bean
+    public PkmFaultOutInterceptor pkmFaultOutInterceptor() {
+        return new PkmFaultOutInterceptor();
     }
 
 }

@@ -16,6 +16,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.core.support.LdapContextSource;
 import org.springframework.security.ldap.authentication.BindAuthenticator;
+import org.springframework.security.ldap.authentication.LdapAuthenticationProvider;
 import org.springframework.security.ldap.search.FilterBasedLdapUserSearch;
 import org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator;
 
@@ -64,6 +65,13 @@ public class LdapConfiguration {
     public CachingLdapAuthenticationProvider ldapAuthenticationProvider() {
         return new CachingLdapAuthenticationProvider(bindAuthenticator(), ldapAuthoritiesPopulator());
     }
+
+/*
+    @Bean
+    public LdapAuthenticationProvider authenticationProvider() {
+        return new LdapAuthenticationProvider(bindAuthenticator(), ldapAuthoritiesPopulator());
+    }
+*/
 
     @Bean
     public LdapTemplate ldapTemplate() {
